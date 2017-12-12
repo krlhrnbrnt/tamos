@@ -571,7 +571,7 @@ def main():
 	fileid = 'tamos_test2.json'
 	tk = Tk()
 	#tk.configure(bg='grey')
-	tk.iconbitmap(default='tamos.ico')
+	#tk.iconbitmap(default='tamos.ico')
 	tk.title('TaMoS')
 	defaultbg = tk.cget("bg")
 	tamos = TamosGame(tk,defaultbg,fileid)
