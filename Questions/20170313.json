@@ -1,1 +1,162 @@
-[["What is true about the classical definition of knowledge? Select all correct alternatives. According to the classical definition of knowledge...", "...if you know that it is raining then you are justified in believing that it is raining", "...you know that it is raining at place P at time t only if you have observed that it is raining at place P at time t.", "...if it is not raining at place P at time t then you do not know that it is raining at place P at time t.", "...if you know that it is raining at place P at time t, then it is raining at place P at time t.", "a,c,d,"], ["Does methodology aim to eliminate all errors in science? Select all correct answers.", "No. Available evidence often gives us reason to choose one method over", "No. One argument for this is that science cannot eliminate all errors,", "No. Almost all our beliefs are fallible, so it would be impossible to", "No. Errors are a necessary part of accurate claims.", "a,b,c,"], ["Does methodology aim to eliminate all errors in science? Select all correct answers.", "While justifications of inductive inference rules are controversial, deductiveinference rules are \"natural\" in the sense that they do not requireany justification.", "Valid deduction is truth-preserving, justified induction is fallible.", "Generalisation is an example of inductive inferences, modus tollens isan example of deductive inferences.", " Modus tollens is an example of an inductive inference, projection is anexample of a deductive inference.", "b,c,"], ["What is correct about the hypothetico-deductive method for hypothesistesting? Select all true claims.", "Operationalization of not directly observable features of interest isnecessary for the hypothetico-deductive method.", "Observable consequences are deduced from one's hypotheses and testedempirically.", "If the outcome of a test (i.e. an experiment) is negative, this does notnecessarily mean that the hypothesis should be rejected. The negativeresult might be explained by an auxiliary hypothesis being false.", "The method determines how hypotheses can be deduced from other,more fundamental theories.", "a,b,c,"], ["What is true about \u201dHume\u2019s Problem of Induction\u201d-argument? Select alltrue claims. Hume argued . . .", ". . . that there is no necessary connection between past and future observations.", ". . . that induction necessarily led to false beliefs", ". . . that inductive inference practices in science should be replaced by deductive inference practices.", ". . . that in our inferences, we rely on inference rules that themselvesrequire justification.", "b,d,"], ["What is true about falsifiable statements? Select all true claims. Falsifiablestatements . . .", ". . . are not true.", ". . . are neither necessarily true nor necessarily false.", ". . . may be false.", ". . . are testable even though they may be about something not directlyobservable.", "b,c,"], ["What kind of measurement scale is employed when one ranks movies on the scale 1,2,3,4,5? Select all correct alternatives.", "A ratio scale.", "A scale that represents less information than a ratio scale.", "An interval scale.", "The kind of scale that is also used when describing the final positionsin a marathon.", "a,b,c,d,"], ["Which of the following claims about systematic error is correct? Select alltrue claims.", "Systematic error can be reduced by repeating measurements and averagingover outcomes.", "Systematic errors are (in principle) predictable and deviations from thetrue value are typically constant or proportional to the true value.", "If a cause of the systematic error is identified, then it can usually becorrected.", "Systematic error affects the degree to which repeated measurementsunder unchanged conditions show the same results.", "b,d,"], ["Which factors would threaten the internal validity of inferences from anexperiment (in contrast to an observational study)? Select all correctalternatives.", "Misinterpreting experimental observations.", "Misunderstanding the influence of experimental manipulation.", "Failing to (materially) control background conditions.", "Misunderstanding the influence of background conditions.", "b,d,"], ["What is correct about the repeatability of experiments? Select all correctalternatives.", "The criterion of repeatability is sufficiently satisfied when a personreports that she has done a number of trials with different experimentalsetups for each trial and out of these trials succeeded in reproducingthe same result twice.", "Repeatability of an experiment can be determined by analysing thepublished material about this experiment.", "If an experiment is repeatable, then it is also reproducible.", "An experiment is repeatable if other competent persons that follow thegiven description of the experiment can repeat it.", "b,d,"], ["What are good (epistemic or non-epistemic) reasons why scientists build andinvestigate models of targets they are interested in, rather than investigatingthese targets directly? Select all correct alternatives.", "Targets can never be manipulated directly.", "It is too expensive to handle some targets directly.", "Science is interested in representations, not in the targets themselves.", " Some targets are too complex to gain knowledge from their directinvestigation.", "a,b,c,d,"], ["What is true about valid isolating models? Select all correct claims.", "Although of theoretical interest, isolating models play no relevant rolefor any of the engineering sciences.", "A valid isolating model is dissimilar to its target and still licensesrelevant (externally) valid inferences", "A valid isolating model singles out one aspect of the target, ignoring allthe others.", "A valid isolating model represents the workings of the isolated factoraccurately.", "a,d,"], ["Why should hypotheses be tested statistically? Select all correct options.", "Statistics is the only way how to justify inductive inferences.", "Statistical accounts often impose weaker demands on hypothesis testingthan (non-statistical) accounts of confirmation and falsification.", "Using probability calculus is a way to model and calculate the degreeof confirmation that some evidence confers to a hypothesis.", "Some hypotheses only make claims about distributions of outcomes.", "b,c,d,"], [" Which claims are true about Bayesian statistics? Select all correct alternatives.", " Bayesian statistics can evaluate a potentially large set of competinghypothese.", "The main goal in Bayesian hypothesis evaluation is to decide whetherto accept a single hypothesis as either true or false.", "Bayesian statistics offers an unambiguous algorithm for assigning priorprobabilities to hypotheses.", "Bayesian statistics interprets probabilities as \u201cdegrees of belief\u201d or\u201csubjective confidence in hypotheses\u201d.", "a,d,"], ["What is true of the Deductive-Nomological (DN) Account of Explanation?Select all true answers.", "The DN account is problematic, because some cases satisfy the DNaccount\u2019s conditions, but intuitively do not constitute genuine explanations.", "According to the DN account, understanding of a phenomenon isachieved by having reasons for why the phenomenon was expected on alawful basis.", "According to the DN account, an explanation consists in the deductionof the explanandum from laws of nature and initial conditions.", "According to the DN account, the logical structure of scientific explanationsand predictions is very similar.", "b,d,"], ["Which claims are true about the relation between correlation and causation?Select all correct claims.", "Correlation measures the covariance between variables. Causationmeasures the influence of one variable on another.", "That there is a common cause of two variables X and Y explains whythere is a causal relation between X and Y (either X causes Y or Ycauses X), although there is no correlation between X and Y.", "By analysing correlation data, we typically are able to determine whichcausal model is the unique explanation of the data.", "Variables can be correlated with each other even though no direct causalrelation exists between them.", "a,c,"], ["What is true about the precautionary principle? Select all correct answers.The precautionary principle . . .", " . . . is of no concern in ideal democracies.", ". . . states that the proponent of an activity, rather than the public,should bear the burden of proof of the activity\u2019s harmlessness.", " . . . states that when experiments exceeds the research budget, theyshould not be conducted.", ". . . states that when an activity raises threats of harm to human healthor the environment, precautionary measures should be taken even ifsome cause and effect relationships are not fully established scientifically.", "b,d,"], ["What is true about informed consent? Select all correct alternatives.Informed consent . . .", ". . . is not something that everyone can give.", ". . . only has support among deontologists who think that individualautonomy is morally important.", ". . . designates the legitimate authorization of research participation.", ". . . should never be sought if it risks spoiling the study.", "c,d,"], ["What is true about risk assessment? Select all correct alternatives. Riskassessment is the step in risk analysis where . . .", ". . . policies are put in place.", ". . . experiments or observational studies are performed.", ". . . evidential information is communicated to the public.", ". . . statistical evidence is considered.", "a,b,"], [" A decision has to be made between four alternative courses of action.\nOn alternative A1, there are three possible outcomes: 20 people dying\n(probability 0.2), 500 people dying (p = 0.002), or 5 people dying (p =\n0.798).\nOn alternative A2, there are only two possible outcomes (equal probabilities):\n20 people dying, or no one dying.\nOn A3, there are three possible outcomes (equal probabilities): 9 people\ndying, 4 people dying, or 12 people dying.\nOn A4, finally, there is a one percent probability of 800 people dying\n(otherwise, no one dies).\nSelect all correct statement(s), given the expected value criterion for decisions\ninvolving risks:", "A2 is the best alternative.", "A1 is the worst alternative", "A4 is the best alternative.", "A1 is the third best alternative.", "c,d,"]]
+[
+    [
+        "What is true about the classical definition of knowledge? Select all correct alternatives. According to the classical definition of knowledge...",
+        "...if you know that it is raining then you are justified in believing that it is raining",
+        "...you know that it is raining at place P at time t only if you have observed that it is raining at place P at time t.",
+        "...if it is not raining at place P at time t then you do not know that it is raining at place P at time t.",
+        "...if you know that it is raining at place P at time t, then it is raining at place P at time t.",
+        "a,c,d,"
+    ],
+    [
+        "Does methodology aim to eliminate all errors in science? Select all correct answers.",
+        "No. Available evidence often gives us reason to choose one method over",
+        "No. One argument for this is that science cannot eliminate all errors,",
+        "No. Almost all our beliefs are fallible, so it would be impossible to",
+        "No. Errors are a necessary part of accurate claims.",
+        "a,b,c,"
+    ],
+    [
+        "Does methodology aim to eliminate all errors in science? Select all correct answers.",
+        "While justifications of inductive inference rules are controversial, deductiveinference rules are \"natural\" in the sense that they do not requireany justification.",
+        "Valid deduction is truth-preserving, justified induction is fallible.",
+        "Generalisation is an example of inductive inferences, modus tollens isan example of deductive inferences.",
+        " Modus tollens is an example of an inductive inference, projection is anexample of a deductive inference.",
+        "b,c,"
+    ],
+    [
+        "What is correct about the hypothetico-deductive method for hypothesistesting? Select all true claims.",
+        "Operationalization of not directly observable features of interest isnecessary for the hypothetico-deductive method.",
+        "Observable consequences are deduced from one's hypotheses and testedempirically.",
+        "If the outcome of a test (i.e. an experiment) is negative, this does notnecessarily mean that the hypothesis should be rejected. The negativeresult might be explained by an auxiliary hypothesis being false.",
+        "The method determines how hypotheses can be deduced from other,more fundamental theories.",
+        "a,b,c,"
+    ],
+    [
+        "What is true about \u201dHume\u2019s Problem of Induction\u201d-argument? Select alltrue claims. Hume argued . . .",
+        ". . . that there is no necessary connection between past and future observations.",
+        ". . . that induction necessarily led to false beliefs",
+        ". . . that inductive inference practices in science should be replaced by deductive inference practices.",
+        ". . . that in our inferences, we rely on inference rules that themselvesrequire justification.",
+        "b,d,"
+    ],
+    [
+        "What is true about falsifiable statements? Select all true claims. Falsifiablestatements . . .",
+        ". . . are not true.",
+        ". . . are neither necessarily true nor necessarily false.",
+        ". . . may be false.",
+        ". . . are testable even though they may be about something not directlyobservable.",
+        "b,c,"
+    ],
+    [
+        "What kind of measurement scale is employed when one ranks movies on the scale 1,2,3,4,5? Select all correct alternatives.",
+        "A ratio scale.",
+        "A scale that represents less information than a ratio scale.",
+        "An interval scale.",
+        "The kind of scale that is also used when describing the final positionsin a marathon.",
+        "a,b,c,d,"
+    ],
+    [
+        "Which of the following claims about systematic error is correct? Select alltrue claims.",
+        "Systematic error can be reduced by repeating measurements and averagingover outcomes.",
+        "Systematic errors are (in principle) predictable and deviations from thetrue value are typically constant or proportional to the true value.",
+        "If a cause of the systematic error is identified, then it can usually becorrected.",
+        "Systematic error affects the degree to which repeated measurementsunder unchanged conditions show the same results.",
+        "b,d,"
+    ],
+    [
+        "Which factors would threaten the internal validity of inferences from anexperiment (in contrast to an observational study)? Select all correctalternatives.",
+        "Misinterpreting experimental observations.",
+        "Misunderstanding the influence of experimental manipulation.",
+        "Failing to (materially) control background conditions.",
+        "Misunderstanding the influence of background conditions.",
+        "b,d,"
+    ],
+    [
+        "What is correct about the repeatability of experiments? Select all correctalternatives.",
+        "The criterion of repeatability is sufficiently satisfied when a personreports that she has done a number of trials with different experimentalsetups for each trial and out of these trials succeeded in reproducingthe same result twice.",
+        "Repeatability of an experiment can be determined by analysing thepublished material about this experiment.",
+        "If an experiment is repeatable, then it is also reproducible.",
+        "An experiment is repeatable if other competent persons that follow thegiven description of the experiment can repeat it.",
+        "b,d,"
+    ],
+    [
+        "What are good (epistemic or non-epistemic) reasons why scientists build andinvestigate models of targets they are interested in, rather than investigatingthese targets directly? Select all correct alternatives.",
+        "Targets can never be manipulated directly.",
+        "It is too expensive to handle some targets directly.",
+        "Science is interested in representations, not in the targets themselves.",
+        " Some targets are too complex to gain knowledge from their directinvestigation.",
+        "a,b,c,d,"
+    ],
+    [
+        "What is true about valid isolating models? Select all correct claims.",
+        "Although of theoretical interest, isolating models play no relevant rolefor any of the engineering sciences.",
+        "A valid isolating model is dissimilar to its target and still licensesrelevant (externally) valid inferences",
+        "A valid isolating model singles out one aspect of the target, ignoring allthe others.",
+        "A valid isolating model represents the workings of the isolated factoraccurately.",
+        "a,d,"
+    ],
+    [
+        "Why should hypotheses be tested statistically? Select all correct options.",
+        "Statistics is the only way how to justify inductive inferences.",
+        "Statistical accounts often impose weaker demands on hypothesis testingthan (non-statistical) accounts of confirmation and falsification.",
+        "Using probability calculus is a way to model and calculate the degreeof confirmation that some evidence confers to a hypothesis.",
+        "Some hypotheses only make claims about distributions of outcomes.",
+        "b,c,d,"
+    ],
+    [
+        " Which claims are true about Bayesian statistics? Select all correct alternatives.",
+        " Bayesian statistics can evaluate a potentially large set of competinghypothese.",
+        "The main goal in Bayesian hypothesis evaluation is to decide whetherto accept a single hypothesis as either true or false.",
+        "Bayesian statistics offers an unambiguous algorithm for assigning priorprobabilities to hypotheses.",
+        "Bayesian statistics interprets probabilities as \u201cdegrees of belief\u201d or\u201csubjective confidence in hypotheses\u201d.",
+        "a,d,"
+    ],
+    [
+        "What is true of the Deductive-Nomological (DN) Account of Explanation?Select all true answers.",
+        "The DN account is problematic, because some cases satisfy the DNaccount\u2019s conditions, but intuitively do not constitute genuine explanations.",
+        "According to the DN account, understanding of a phenomenon isachieved by having reasons for why the phenomenon was expected on alawful basis.",
+        "According to the DN account, an explanation consists in the deductionof the explanandum from laws of nature and initial conditions.",
+        "According to the DN account, the logical structure of scientific explanationsand predictions is very similar.",
+        "b,d,"
+    ],
+    [
+        "Which claims are true about the relation between correlation and causation?Select all correct claims.",
+        "Correlation measures the covariance between variables. Causationmeasures the influence of one variable on another.",
+        "That there is a common cause of two variables X and Y explains whythere is a causal relation between X and Y (either X causes Y or Ycauses X), although there is no correlation between X and Y.",
+        "By analysing correlation data, we typically are able to determine whichcausal model is the unique explanation of the data.",
+        "Variables can be correlated with each other even though no direct causalrelation exists between them.",
+        "a,c,"
+    ],
+    [
+        "What is true about the precautionary principle? Select all correct answers.The precautionary principle . . .",
+        " . . . is of no concern in ideal democracies.",
+        ". . . states that the proponent of an activity, rather than the public,should bear the burden of proof of the activity\u2019s harmlessness.",
+        " . . . states that when experiments exceeds the research budget, theyshould not be conducted.",
+        ". . . states that when an activity raises threats of harm to human healthor the environment, precautionary measures should be taken even ifsome cause and effect relationships are not fully established scientifically.",
+        "b,d,"
+    ],
+    [
+        "What is true about informed consent? Select all correct alternatives.Informed consent . . .",
+        ". . . is not something that everyone can give.",
+        ". . . only has support among deontologists who think that individualautonomy is morally important.",
+        ". . . designates the legitimate authorization of research participation.",
+        ". . . should never be sought if it risks spoiling the study.",
+        "c,d,"
+    ],
+    [
+        "What is true about risk assessment? Select all correct alternatives. Riskassessment is the step in risk analysis where . . .",
+        ". . . policies are put in place.",
+        ". . . experiments or observational studies are performed.",
+        ". . . evidential information is communicated to the public.",
+        ". . . statistical evidence is considered.",
+        "a,b,"
+    ],
+    [
+        " A decision has to be made between four alternative courses of action.\nOn alternative A1, there are three possible outcomes: 20 people dying\n(probability 0.2), 500 people dying (p = 0.002), or 5 people dying (p =\n0.798).\nOn alternative A2, there are only two possible outcomes (equal probabilities):\n20 people dying, or no one dying.\nOn A3, there are three possible outcomes (equal probabilities): 9 people\ndying, 4 people dying, or 12 people dying.\nOn A4, finally, there is a one percent probability of 800 people dying\n(otherwise, no one dies).\nSelect all correct statement(s), given the expected value criterion for decisions\ninvolving risks:",
+        "A2 is the best alternative.",
+        "A1 is the worst alternative",
+        "A4 is the best alternative.",
+        "A1 is the third best alternative.",
+        "c,d,"
+    ]
+]
