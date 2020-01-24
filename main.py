@@ -26,6 +26,7 @@ class Option():
 	def __init__(self,option,answer):
 		self.option = option
 		self.answer = answer
+  
 		
 class Questions():
 	def __init__(self,question,options,answer):
@@ -33,6 +34,7 @@ class Questions():
 		self.options = []
 		for i in range(0,len(options)):
 			self.options.append(Option(options[i],answer[i]))
+   
 
 class TamosGame(Frame):   
 	def __init__(self, master,defaultbg,fileid):
@@ -203,11 +205,9 @@ class TamosGame(Frame):
 	def hideGame(self):
 		self.main_frame.pack_forget()
 	
-	# TODO: Fix messages and shit!	
 	def showGame(self):
 		try:
 			self.hideSettings()
-			#self.nextQuestion()
 			self.updateQuestionsSearch()
 			self.restart_button.configure(text='Restart',command=self.clickRestart)
 			self.status_label_text.set(self.status_text)
@@ -248,8 +248,6 @@ class TamosGame(Frame):
 		self.settings_frame.pack(side=RIGHT,expand=1,fill=BOTH,anchor=W)
 		self.restart_button.configure(text='Play',command=self.showGame)
 		
-		
-		
 	def hideSettings(self):
 		self.settings_frame.pack_forget()
 		
@@ -262,7 +260,6 @@ class TamosGame(Frame):
 	def destroy_widgets(self):
 		for widget in self.main_frame.winfo_children():
 			widget.destroy()
-		
 		
 	def update_questions(self):
 		self.questions = []
@@ -299,7 +296,6 @@ class TamosGame(Frame):
 	def clickEdit(self):
 		self.data = []
 		toplevel = Toplevel()
-		#toplevel.geometry('350x250')
 		toplevel.title('Edit Question')
 		entryfields = []
 		var = []
@@ -312,11 +308,9 @@ class TamosGame(Frame):
 		question_label=Label(toplevel,text='Question')
 		question_label.grid(row=1,column=0)
 		
-		
 		for n in range(0,5):
 			self.data.append(StringVar())
 			if n < 1:
-				#print self.question.question
 				self.data[n].set(self.question.question)
 			else:
 				self.data[n].set(self.question.options[n-1].option)
@@ -326,15 +320,11 @@ class TamosGame(Frame):
 		
 		for n in range(0,4):
 			var.append(IntVar())
-			
 			checkbutton.append(Checkbutton(toplevel,text=checkbutton_text[n],variable=self.var[n]))
-			if self.question.options[n].answer == 1:
-				checkbutton[n].select()
-			else:
-				checkbutton[n].deselect()
+			checkbutton[n].deselect()
 			checkbutton[n].grid(row=n+2,column=0)
 			
-		save_button = Button(toplevel,text='Save question!',command=self.saveEdit)
+		save_button = Button(toplevel,text='Save changes!',command=self.saveEdit)
 		save_button.grid(row = 7,column = 1,padx=5,pady=10)
 		
 	def saveEdit(self):
@@ -384,8 +374,6 @@ class TamosGame(Frame):
 			elif ans is correct and correct is 1:
 				self.option[n].configure(bg='green')
 				
-			
-			
 		if fail:
 			self.questions.append(self.question)
 			self.status_label_text.set('Wrong!')
@@ -418,19 +406,6 @@ class TamosGame(Frame):
 		self.showSettings()
 		
 	def setupSettings(self):
-		"""l = Label(self.settings_frame,text='Settings',width=100)
-		b=Button(self.settings_frame,text='click me!',command=self.showGame)
-		l.pack()
-		b.pack()
-		
-		listbox = Listbox(self.settings_frame)
-		listbox.pack()
-
-		listbox.insert(END, "a list entry")
-
-		for item in ["one", "two", "three", "four"]:
-			listbox.insert(END, item)
-		"""
 		self.search_word = StringVar()
 		l = Label(self.settings_frame,text='Search!',font=('Helvetica',15))
 		l.pack(padx=50,pady=15)
@@ -451,9 +426,6 @@ class TamosGame(Frame):
 		self.questions = tmp
 		self.clickRestart()
 		self.showGame()
-		
-		
-		
 		
 	def setupNewQuestion(self):
 		self.data = []
@@ -481,9 +453,7 @@ class TamosGame(Frame):
 		
 		self.save_button = Button(self.new_question_frame,text='Save question!',command=self.saveQuestion)
 		self.save_button.grid(row = 7,column = 1,padx=5,pady=10)
-		
-
-						
+					
 	def clickAbout(self):
 		toplevel = Toplevel()
 		toplevel.geometry('350x250')
@@ -494,13 +464,6 @@ class TamosGame(Frame):
 		label2.pack()
 		
 	def openHistory(self):
-		""" file = open('dump.json', 'w+')
-    data = { "fggdf2":0 }
-    json.dump(data, file)
-    file = open('dump.json', 'r')
-    a  = json.load(file)
-    print a"""
-		# TODO: json
 		self.history={}
 		try:
 			for key, val in csv.reader(open("history.csv")):
@@ -515,10 +478,8 @@ class TamosGame(Frame):
 			pass
 			
 	def saveHistory(self,key,val):
-		# TODO: json
 		key = hashlib.sha224(key).hexdigest()
 		if self.history.has_key(key):
-			#self.history[key][0] = float((self.history[key]+val)/2)
 			self.history[key][0] += val
 			self.history[key][1] += 1
 		else:
@@ -531,6 +492,7 @@ class TamosGame(Frame):
 		file = open('stats.json', 'r')
 		stats  = json.load(file)
 
+
 def findFiles():
 	exams = []
 	directory = "./Questions"
@@ -539,9 +501,6 @@ def findFiles():
 			exams.append(directory+'/'+file)
 	return exams		
 	
-
-    
-    
 def readFile(filenames,exams):
 	questions = []
 	for n in range(0, len(filenames)):
@@ -570,12 +529,9 @@ def ansList(answer):
 def main():
 	fileid = 'tamos_test2.json'
 	tk = Tk()
-	#tk.configure(bg='grey')
-	#tk.iconbitmap(default='tamos.ico')
 	tk.title('TaMoS')
 	defaultbg = tk.cget("bg")
 	tamos = TamosGame(tk,defaultbg,fileid)
-
 	tk.mainloop()
 
 if __name__ == '__main__':
