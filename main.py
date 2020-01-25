@@ -18,6 +18,8 @@ Disclaimer
 
 This software comes with no guarantee. Use at your own risk! """
 
+SHUFFLE_QUESTIONS = False
+SHUFFLE_ANSWERS = False
 
 class Option():
     def __init__(self, option, answer):
@@ -33,10 +35,18 @@ class Questions():
             self.options.append(Option(opt, answer[i]))
 
 
-class TamosGame(Frame):
-    def __init__(self, master, defaultbg, fileid):
-        self.fileid = find_files()
-        self.question_text = StringVar()
+class MenuButton(Button):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.bg = 'white'
+        self.width = 25
+        self.font = ('Helvetica', 11)
+
+
+class TamosGame():
+    def __init__(self, master, defaultbg):
+        self.exam_files = find_files()
+        self._question_text = StringVar()
         self.text_width = 100
         self.score = 0
         self.open_history()
@@ -45,7 +55,8 @@ class TamosGame(Frame):
         self.score_label_text = StringVar()
         self.total_questions_text = StringVar()
         self.total_questions_text.set('Questions: 0')
-        self.search_var = 0
+        self.exams = []
+        self.questions = []
 
         # The big frame
         self.frame = Frame(master)
@@ -58,10 +69,6 @@ class TamosGame(Frame):
         # Frame for the game
         self.main_frame = Frame(self.frame, bg=self.defaultbg)
         self.show_game()
-
-        # Frame for settings
-        self.settings_frame = Frame(self.frame, bg=self.defaultbg, width=100)
-        self.setup_settings()
 
         # Frame for new question
         self.new_question_frame = Frame(self.frame, bg=self.defaultbg)
@@ -79,17 +86,14 @@ class TamosGame(Frame):
         self.setup_menu()
 
     def setup_menu(self):
-        self.menu_button_bg = 'white'
-        self.restart_button = Button(self.frame_menu, text='Restart', command=self.click_restart,
-                                     width=self.menu_button_width, bg=self.menu_button_bg, font=('Helvetica', 11))
-        self.settings_button = Button(self.frame_menu, text='Search', command=self.click_settings,
-                                      width=self.menu_button_width, bg=self.menu_button_bg, font=('Helvetica', 11))
-        self.new_question_button = Button(self.frame_menu, text='New question', command=self.click_new_question,
-                                          width=self.menu_button_width, bg=self.menu_button_bg, font=('Helvetica', 11))
-        self.quit_button = Button(self.frame_menu, text='Quit!', fg="red", command=self.frame.quit,
-                                  width=self.menu_button_width, bg=self.menu_button_bg, font=('Helvetica', 11))
-        self.about_button = Button(self.frame_menu, text='About', command=self.click_about,
-                                   width=self.menu_button_width, bg=self.menu_button_bg, font=('Helvetica', 11))
+        self.restart_button = MenuButton(
+            self.frame_menu, text='Restart', command=self.click_restart)
+        self.new_question_button = MenuButton(
+            self.frame_menu, text='New question', command=self.click_new_question)
+        self.quit_button = MenuButton(
+            self.frame_menu, text='Quit!', fg="red", command=self.frame.quit)
+        self.about_button = MenuButton(
+            self.frame_menu, text='About', command=self.click_about)
         self.score_label = Label(self.frame_menu, textvariable=self.score_label_text, font=(
             'Helvetica', 15), bg='grey', bd=2, relief=RAISED)
         self.total_questions = Label(self.frame_menu, textvariable=self.total_questions_text, font=(
@@ -101,10 +105,9 @@ class TamosGame(Frame):
 
         self.tamos_label = Label(
             self.frame_menu, text='TaMoS the Game!', font=('fixedsys', 18), bg='grey')
-        
+
         self.tamos_label.pack(pady=10)
         self.restart_button.pack(fill=X)
-        self.settings_button.pack(fill=X)
         self.new_question_button.pack(fill=X)
         self.about_button.pack(fill=X)
         self.score_label.pack(fill=X, pady=5)
@@ -117,39 +120,37 @@ class TamosGame(Frame):
 
     def exams_settings(self):
         self.exams = []
-        r = 0
-        for i in range(0, len(self.fileid)):
-            self.exams.append(IntVar())
-            name = self.fileid[i].strip('./Questions/').strip('.json')
-            c = Checkbutton(self.frame_exams, text=name,
-                            variable=self.exams[i], bg='gray', font=('Helvetica', 11))
-            if i == 0:  # Minst en tenta
-                self.exams[0].set(1)
-                c.select()
-            if not i % 2 == 0:
-                col = 1
+        row = 0
+        for idx, file in enumerate(self.exam_files):
+            tmp_var = IntVar()
+            name = file.strip('./Questions/').strip('.json')
+            exam_checkbutton = Checkbutton(self.frame_exams, text=name,
+                                           variable=tmp_var, bg='gray', font=('Helvetica', 11))
+            exam_checkbutton.select()
+            self.exams.append(tmp_var)
+
+            if not idx % 2 == 0:
+                column = 1
             else:
-                r += 1
-                col = 0
-            c.grid(row=r, column=col)
+                row += 1
+                column = 0
+            exam_checkbutton.grid(row=row, column=column)
 
     def start_game(self):
-        self.score = 0
-        self.max_score = 0
-        if self.search_var == 0:
-            self.update_questions()
-        else:
-            self.search_var = 0
-        # Game label
-        self.question_text = StringVar()
-        self.question_text.set('Game label')
+        self.reset_score()
+        self.update_questions()
+        self.question_text = 'No questions!'
         self.game_label = Label(self.main_frame, textvariable=self.question_text,
                                 justify=LEFT, anchor=E, bg=self.defaultbg, font=('Helvetica', 13, "bold"))
         self.game_label.grid(row=0, column=1, columnspan=4, pady=5, padx=5)
 
-        self.make_checkbuttons()
+        self.question_checkbuttons()
         self.show_score()
         self.show_question()
+
+    def reset_score(self):
+        self.score = 0
+        self.max_score = 0
 
     def click_restart(self):
         self.destroy_widgets()
@@ -211,7 +212,6 @@ class TamosGame(Frame):
 
     def show_game(self):
         try:
-            self.hide_settings()
             self.update_questions_search()
             self.restart_button.configure(
                 text='Restart', command=self.click_restart)
@@ -229,32 +229,11 @@ class TamosGame(Frame):
         self.main_frame.pack(side=RIGHT, expand=1, fill=BOTH, anchor=W)
 
     def show_new_question(self):
-        try:
-            self.hide_settings()
-        except AttributeError:
-            pass
-        except:
-            print("Unexpected error")
-            raise
         self.new_question_frame.pack(side=RIGHT, expand=1, fill=BOTH, anchor=W)
         self.restart_button.configure(text='Play', command=self.show_game)
 
     def hide_new_question(self):
         self.new_question_frame.pack_forget()
-
-    def show_settings(self):
-        try:
-            self.hide_new_question()
-        except AttributeError:
-            pass
-        except:
-            print("Unexpected error")
-            raise
-        self.settings_frame.pack(side=RIGHT, expand=1, fill=BOTH, anchor=W)
-        self.restart_button.configure(text='Play', command=self.show_game)
-
-    def hide_settings(self):
-        self.settings_frame.pack_forget()
 
     def clear(self):
         for n in range(0, 5):
@@ -268,7 +247,7 @@ class TamosGame(Frame):
 
     def update_questions(self):
         self.questions = []
-        self.questions = read_file(self.fileid, self.exams)
+        self.questions = read_file(self.exam_files, self.exams)
         self.total_questions_text.set("Questions: " + str(len(self.questions)))
 
     def update_questions_search(self):
@@ -281,7 +260,7 @@ class TamosGame(Frame):
             self.status_label_text.set(self.status_text)
             self.show_question()
 
-    def make_checkbuttons(self):
+    def question_checkbuttons(self):
         self.varOpt = []
         self.option = []
         self.strOpt = []
@@ -345,7 +324,8 @@ class TamosGame(Frame):
         pass
 
     def update_checkbuttons(self):
-        random.shuffle(self.question.options)
+        if SHUFFLE_ANSWERS:
+            random.shuffle(self.question.options)
         for n in range(0, 4):
             self.strOpt[n].set(textwrap.fill(
                 self.question.options[n].option, width=self.text_width))
@@ -362,33 +342,23 @@ class TamosGame(Frame):
             self.question_text.set(textwrap.fill(
                 self.question.question, width=self.text_width))
             self.update_checkbuttons()
-            self.question_info()
             self.max_score += 1
-
-    def question_info(self):
-        key = self.question.question
-        if key in self.history:
-            p = 100*(float(self.history[key][0])/float(self.history[key][1]))
-            output = 'Stats: %.2f ' % p
-            self.status_label_text.set(output+'%')
-        else:
-            self.status_label_text.set('No stats')
 
     def check_ans(self):
         fail = False
         self.disable_checkbuttons()
-        for n in range(0, len(self.question.options)):
-            ans = self.varOpt[n].get()
-            correct = int(self.question.options[n].answer)
-            if ans is not correct and correct is not 1:
-                self.option[n].configure(bg='red')
-                fail = True
 
-            elif ans is not correct and correct is 1:
-                self.option[n].configure(bg='green')
+        for idx, opt in enumerate(self.question.options):
+            ans = self.varOpt[idx].get()
+            correct_ans = int(opt.answer)
+            if ans == correct_ans and correct_ans == 1:
+                self.option[idx].configure(bg='pale green')
+            elif ans is not correct_ans and correct_ans is not 1:
+                self.option[idx].configure(bg='firebrick1')
                 fail = True
-            elif ans is correct and correct is 1:
-                self.option[n].configure(bg='green')
+            elif ans is not correct_ans and correct_ans is 1:
+                self.option[idx].configure(bg='pale green')
+                fail = True
 
         if fail:
             self.questions.append(self.question)
@@ -398,6 +368,7 @@ class TamosGame(Frame):
             self.score += 1
             self.status_label_text.set('Correct!')
             self.save_history(self.question.question, 1)
+
         self.show_score()
         self.change_game_button()
 
@@ -416,33 +387,6 @@ class TamosGame(Frame):
     def show_score(self):
         score = "Score: %d/%d" % (self.score, self.max_score)
         self.score_label_text.set(score)
-
-    def click_settings(self):
-        self.hide_game()
-        self.show_settings()
-
-    def setup_settings(self):
-        self.search_word = StringVar()
-        l = Label(self.settings_frame, text='Search!', font=('Helvetica', 15))
-        l.pack(padx=50, pady=15)
-        e = Entry(self.settings_frame, width=25,
-                  textvariable=self.search_word, justify=CENTER)
-        e.pack(pady=20, padx=10)
-        b = Button(self.settings_frame, text='Search!', command=self.search)
-        b.pack()
-
-    def search(self):
-        self.search_var = 1
-        tmp = []
-        for question in self.questions:
-            q = question.question.lower()
-            val = q.find(self.search_word.get())
-            if not val == -1:
-                tmp.append(question)
-
-        self.questions = tmp
-        self.click_restart()
-        self.show_game()
 
     def setup_new_question(self):
         self.data = []
@@ -512,6 +456,15 @@ class TamosGame(Frame):
         file = open('stats.json', 'r')
         stats = json.load(file)
 
+    @property
+    def question_text(self):
+        return self._question_text
+
+    @question_text.setter
+    def question_text(self, question_text):
+        self._question_text.set(question_text)
+        return self._question_text
+
 
 def find_files():
     exams = []
@@ -533,8 +486,9 @@ def read_file(filenames, exams):
             numq = len(data)
             for i in range(0, numq):
                 questions.append(
-                    Questions(data[i][0], data[i][1:5], ans_list(data[i][5])))
-    random.shuffle(questions)
+                    Questions(data[i][0].strip(), data[i][1:5], ans_list(data[i][5])))
+    if SHUFFLE_QUESTIONS:
+        random.shuffle(questions)
     return questions
 
 
@@ -552,11 +506,10 @@ def ans_list(answer):
 
 
 def main():
-    fileid = 'tamos_test2.json'
     tk = Tk()
     tk.title('TaMoS')
     defaultbg = tk.cget("bg")
-    tamos = TamosGame(tk, defaultbg, fileid)
+    tamos = TamosGame(tk, defaultbg)
     tk.mainloop()
 
 
