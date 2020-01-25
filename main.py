@@ -29,9 +29,9 @@ class Questions():
     def __init__(self, question, options, answer):
         self.question = question
         self.options = []
-        for i in range(0, len(options)):
-            self.options.append(Option(options[i], answer[i]))
-            
+        for i, opt in enumerate(options):
+            self.options.append(Option(opt, answer[i]))
+
 
 class TamosGame(Frame):
     def __init__(self, master, defaultbg, fileid):
@@ -101,6 +101,7 @@ class TamosGame(Frame):
 
         self.tamos_label = Label(
             self.frame_menu, text='TaMoS the Game!', font=('fixedsys', 18), bg='grey')
+        
         self.tamos_label.pack(pady=10)
         self.restart_button.pack(fill=X)
         self.settings_button.pack(fill=X)
@@ -528,6 +529,7 @@ def read_file(filenames, exams):
         if exams[n].get() == 1:
             file = open(filename, 'r')
             data = json.load(file)
+            file.close()
             numq = len(data)
             for i in range(0, numq):
                 questions.append(
